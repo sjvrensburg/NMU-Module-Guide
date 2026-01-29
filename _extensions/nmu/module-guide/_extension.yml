@@ -1,0 +1,16 @@
+title: "NMU Module Guide Template"
+author: "Stefan J. van Rensburg <stefan.vanrensburg@mandela.ac.za>"
+version: 1.0.0
+quarto: ">=1.4.0"
+
+contributes:
+  formats:
+    docx:
+      meta:
+        nmu-module-guide: true
+      reference-doc: reference-doc.docx
+      number-sections: true
+      toc: true
+      toc-title: "Table of Contents"
+      filters:
+        - custom-styles.lua

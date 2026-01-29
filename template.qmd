@@ -1,0 +1,419 @@
+---
+title: "MODULE CODE: Module Name"
+author: "Module Coordinator Name"
+department: "Department Name"
+faculty: "Faculty of Science"
+institution: "Nelson Mandela University"
+date: "`r format(Sys.Date(), '%B %Y')`"
+format:
+  docx:
+    toc: true
+execute:
+  echo: true
+  warning: true
+  message: false
+---
+
+# 1. INTRODUCTION {#introduction .unnumbered}
+
+## 1.1 Welcome
+
+Dear Student,
+
+Welcome to **`{{Module Name}}`**. This learner guide is designed to support you throughout the semester by providing you with essential information about the module, including its aims, learning outcomes, assessment schedule, and learning resources.
+
+::: {.learning-outcome}
+After reading this guide, you will understand:
+- The module's purpose and how it fits into your programme
+- What is expected of you as a student
+- How you will be assessed
+- The resources available to support your learning
+:::
+
+## 1.2 Educational Approach
+
+This module is underpinned by the principle of constructive alignment (Biggs), meaning that learning activities, assessments, and outcomes are carefully aligned to promote deep learning and critical thinking.
+
+## 1.3 Responsibilities of the Student
+
+You are expected to:
+
+- Attend all scheduled classes and participate actively
+- Prepare for sessions by completing prescribed readings and activities
+- Engage with online platforms (e.g., Moodle/SharePoint)
+- Submit assessments by the stipulated deadlines
+- Familiarise yourself with institutional, faculty, and departmental rules
+
+::: {.important}
+**Attendance Requirement:** Regular attendance is essential for success in this module. Missing more than 20% of classes may result in a DP (Duly Performed) refusal.
+:::
+
+# 2. ADMINISTRATIVE INFORMATION {#admin .unnumbered}
+
+## 2.1 Communication Channels
+
+All communication relating to this module will take place through:
+
+- **Moodle**: Course announcements, resources, and discussion forums
+- **Mandela University Email**: Official communications
+
+::: {.tip}
+**Tip:** Check your Mandela University email daily. All official communication will be sent to this address.
+:::
+
+## 2.2 Contact Details
+
+**Module Coordinator:** `{{Name}}`
+
+**Office Location:** `{{Building and Room Number}}`
+
+**Office Hours:** `{{Days and Times}}`
+
+**Email:** `{{Email Address}}`
+
+**Telephone:** `{{Number}}`
+
+# 3. MODULE INFORMATION {#module-info .unnumbered}
+
+## 3.1 Module Description and Purpose
+
+This module aims to `{{brief description aligned to yearbook}}`. It contributes to the programme by developing your knowledge, skills, and competencies in `{{specific area}}`.
+
+::: {.key-point}
+**Module Focus:** This module emphasizes practical application of theoretical concepts through hands-on activities and real-world examples.
+:::
+
+## 3.2 Assumed Knowledge and Skills
+
+On entering this module, you are expected to have:
+
+- Foundational knowledge relevant to the discipline
+- Basic academic literacy and digital skills
+- Willingness to engage in independent and collaborative learning
+
+## 3.3 NQF Level, Credits and Notional Hours
+
+```{r}
+# Module metadata
+module_info <- data.frame(
+  Attribute = c("Module Code", "Module Name", "NQF Level", "Credits", "Notional Hours"),
+  Value = c("`{{Module Code}}`", "`{{Module Name}}`", "`{{Level}}`", "`{{Credits}}`", "`{{Hours}}`")
+)
+
+knitr::kable(module_info, caption = "Module Information")
+```
+
+## 3.4 Articulation with Other Modules
+
+This module:
+
+- **Pre-requisites:** `{{if applicable}}`
+- **Co-requisites:** `{{if applicable}}`
+- **Is a pre-requisite for:** `{{if applicable}}`
+- **Forms part of:** `{{year/semester}} of the {{programme name}}`
+
+## 3.5 Module Learning Outcomes
+
+On successful completion of this module, you will be able to:
+
+::: {.learning-outcome}
+1. `{{Outcome 1 - knowledge-based}}`
+
+2. `{{Outcome 2 - skill-based}}`
+
+3. `{{Outcome 3 - application-based}}`
+
+4. `{{Outcome 4 - critical thinking}}`
+
+5. `{{Outcome 5 - professional practice}}`
+:::
+
+These outcomes are aligned to programme outcomes and graduate attributes.
+
+## 3.6 Module Structure and Content
+
+The module is structured around `{{number}}` main themes/topics:
+
+```{r}
+# Topic structure
+topics <- data.frame(
+  Topic = c("Topic 1", "Topic 2", "Topic 3", "Topic 4"),
+  Description = c(
+    "`{{Description}}`",
+    "`{{Description}}`",
+    "`{{Description}}`",
+    "`{{Description}}`"
+  ),
+  Duration = c("`{{Weeks}}`", "`{{Weeks}}`", "`{{Weeks}}`", "`{{Weeks}}`")
+)
+
+knitr::kable(topics, caption = "Module Structure")
+```
+
+# 4. PROFESSIONAL BODY REQUIREMENTS {#professional .unnumbered}
+
+::: {.alert}
+**Where applicable:** This module complies with the requirements of `{{Professional Body}}`.
+
+All learning outcomes and assessments are aligned to the professional standards set by `{{Professional Body}}`.
+:::
+
+# 5. TEACHING & LEARNING DETAILS {#teaching .unnumbered}
+
+## 5.1 Overview of Learning Activities
+
+Your learning in this module will involve a range of activities including:
+
+- **Lectures** (face-to-face / online)
+- **Tutorials** and discussions
+- **Practical or applied tasks**
+- **Independent and group work**
+- **Online activities** via Moodle
+
+**Primary learning mode:** `{{Face-to-face / Online / Blended}}`
+
+## 5.2 Weekly Schedule
+
+```{r}
+# Weekly schedule
+weekly_schedule <- data.frame(
+  Week = 1:14,
+  Topic = c(
+    "`{{Topic}}`", "`{{Topic}}`", "`{{Topic}}`", "`{{Topic}}`",
+    "`{{Topic}}`", "**Test 1**", "`{{Topic}}`", "`{{Topic}}`",
+    "`{{Topic}}`", "`{{Topic}}`", "**Project Due**", "`{{Topic}}`",
+    "`{{Topic}}`", "Review"
+  ),
+  `Learning Activities` = c(
+    "Lecture, Discussion", "Workshop, Group Exercise",
+    "Lecture, Case Studies", "Lab Session, Design Exercise",
+    "Demonstration, Practice", "", "Lecture, Computer Lab",
+    "Lecture, Problem Set", "Lecture, Problem Set",
+    "Workshop, Writing Exercise", "", "Student Presentations",
+    "Seminar, Case Discussion", "Review Session"
+  ),
+  Assessment = c(
+    "", "", "", "", "", "Test 1 (15%)", "", "", "", "", "Project (25%)", "", "", ""
+  )
+)
+
+knitr::kable(weekly_schedule, caption = "Weekly Schedule and Assessment Plan")
+```
+
+::: {.activity}
+**Activity:** Complete the weekly readings before class. Active participation in discussions is expected and will contribute to your class mark.
+:::
+
+# 6. LEARNING RESOURCES {#resources .unnumbered}
+
+## 6.1 Prescribed Resources
+
+### Textbook / Core Resource
+
+**`{{Title}}`**
+
+- **Author:** `{{Name}}`
+- **Edition:** `{{Edition}}`
+- **Publisher:** `{{Publisher}}`
+- **Year:** `{{Year}}`
+- **ISBN:** `{{ISBN}}`
+
+## 6.2 Recommended Resources
+
+```{r}
+# Recommended readings
+readings <- data.frame(
+  Week = 1:12,
+  Chapter = c("1", "2", "3-4", "5", "6", "7", "8", "9", "10", "11", "12", "Supplementary"),
+  Topic = c(
+    "Introduction", "Foundations", "Core Concepts",
+    "Methodology", "Data Collection", "Analysis Basics",
+    "Advanced Analysis", "Interpretation", "Reporting",
+    "Case Studies", "Current Trends", "Professional Practice"
+  ),
+  `Additional Reading` = c(
+    "`{{Reference}}`", "`{{Reference}}`", "`{{Reference}}`",
+    "`{{Reference}}`", "`{{Reference}}`", "`{{Reference}}`",
+    "`{{Reference}}`", "`{{Reference}}`", "`{{Reference}}`",
+    "`{{Reference}}`", "`{{Reference}}`", "`{{Reference}}`"
+  )
+)
+
+knitr::kable(readings, caption = "Weekly Readings")
+```
+
+::: {.note}
+**Access:** All resources are available via Funda, SharePoint and the University Library.
+:::
+
+# 7. ASSESSMENT GUIDELINES {#assessment .unnumbered}
+
+## 7.1 Assessment Overview and Matrix
+
+**Total assessment weighting = 100%**
+
+```{r}
+# Assessment plan
+assessment_plan <- data.frame(
+  Assessment = c(
+    "Test 1", "Practical Assignments (x3)", "Research Project",
+    "Final Examination"
+  ),
+  Type = c("Individual", "Individual", "Group", "Individual"),
+  Weight = c("15%", "30%", "25%", "30%"),
+  `Due Date` = c(
+    "Week 6", "Weeks 4, 8, 12", "Week 11", "Exam Period"
+  ),
+  `Learning Outcomes` = c("LO 1", "LO 2, 3", "LO 2, 3, 4", "All")
+)
+
+knitr::kable(assessment_plan, caption = "Assessment Plan (Total: 100%)")
+```
+
+## 7.2 Assessment Rules and Policies
+
+### Pass Requirements and DP Rules
+
+- **Duly Performed (DP) requirements:** `{{Specify requirements}}`
+- **Pass mark:** `{{%}}` overall, with minimum `{{%}}` in final examination
+
+### Late Submission Penalties
+
+- Late submissions will incur a penalty of `{{%}}` per day
+- Extensions must be requested `{{number}}` days before the due date
+
+### Absence from Assessments
+
+- Medical certificates required for absence from assessments
+- Special assessments will be granted in accordance with university policy
+
+::: {.warning}
+**Important:** Please refer to Faculty and Institutional Assessment Policies for complete details on assessment procedures, including requirements for supplementary examinations.
+:::
+
+## 7.3 Assessment Criteria
+
+### Research Project Rubric
+
+| Criteria | Excellent (25-20) | Good (19-15) | Satisfactory (14-10) | Needs Improvement (9-0) |
+|----------|-------------------|--------------|---------------------|------------------------|
+| Research Design | Clear, well-justified design | Appropriate design | Basic design | Flawed design |
+| Data Analysis | Sophisticated analysis | Appropriate methods | Basic analysis | Incorrect methods |
+| Presentation | Professional, clear | Clear presentation | Adequate presentation | Poor presentation |
+| Scientific Writing | Excellent writing, well-referenced | Good writing | Adequate writing | Poor writing |
+
+# 8. REFERENCING STYLE {#referencing .unnumbered}
+
+All written work must adhere to the **`{{e.g., APA 7th edition}}`** referencing style.
+
+**Key Principles:**
+
+- Acknowledge all sources used in your work
+- Use in-text citations for quotes, paraphrases, and ideas
+- Include a reference list at the end of assignments
+- Use appropriate citation management tools (e.g., Zotero, Mendeley)
+
+# 9. INFORMATION ABOUT TURNITIN {#turnitin .unnumbered}
+
+All written assessments must be submitted via Turnitin. Similarity reports will be used as part of academic integrity checks.
+
+**Turnitin Guidelines:**
+
+- Submit your assignment before the due date
+- Review your similarity report and make necessary revisions
+- Similarity scores should be below `{{%}}` (excluding bibliography and quotes)
+
+::: {.tip}
+**Tip:** Submit your draft early to review the Turnitin report and make improvements before the final deadline.
+:::
+
+# 10. SUPPORT SERVICES & RESOURCES {#support .unnumbered}
+
+## 10.1 The Library
+
+The library offers extensive resources to support your learning.
+
+**Contact Details:**
+
+- **Website:** https://library.mandela.ac.za
+- **Faculty Librarian:** `{{Name}}`
+- **Email:** `{{Email}}`
+- **Office Number:** `{{Location}}`
+
+## 10.2 Emthonjeni - Fountain of Student Wellness
+
+Emthonjeni Student Wellness consists of a team of professionally trained psychologists who are registered with the Health Professions Council of South Africa (HPCSA).
+
+**Services offered:**
+
+- Personal counseling
+- Academic support
+- Career guidance
+- Mental health support
+
+**General Contact Details:**
+
+- **Office Hours:** Monday - Friday 08:00 - 16:30
+- **Email:** emthonjeni@mandela.ac.za
+- **Website:** https://emthonjeni.mandela.ac.za/
+
+**Campus-Specific Contact:**
+
+```{r}
+# Campus contacts
+campus_contacts <- data.frame(
+  Campus = c("South", "North", "Missionvale", "Second Avenue"),
+  Telephone = c(
+    "041 504 2511", "041 504 3222",
+    "041 504 1106", "041 504 3854"
+  ),
+  Email = c(
+    "counselling.south@mandela.ac.za",
+    "counselling.north@mandela.ac.za",
+    "counselling.missionvale@mandela.ac.za",
+    "counselling.2ndave@mandela.ac.za"
+  )
+)
+
+knitr::kable(campus_contacts, caption = "Campus Contact Information")
+```
+
+# 11. GLOSSARY OF INSTRUCTION WORDS {#glossary .unnumbered}
+
+```{r}
+# Instruction words glossary
+instruction_words <- data.frame(
+  Word = c(
+    "Analyse", "Compare", "Critically evaluate", "Define",
+    "Describe", "Discuss", "Evaluate", "Explain", "Illustrate", "Justify"
+  ),
+  Meaning = c(
+    "Break down into components and examine",
+    "Show similarities and differences",
+    "Assess the value/validity with reasons",
+    "Give the exact meaning",
+    "Give detailed features",
+    "Examine by argument, debate, or reason",
+    "Assess the value or importance",
+    "Make clear, interpret, and spell out",
+    "Use examples/diagrams to explain",
+    "Give valid reasons or evidence"
+  )
+)
+
+knitr::kable(instruction_words, caption = "Glossary of Instruction Words")
+```
+
+::: {.reflection}
+**Reflection:** Understanding these instruction words will help you respond appropriately to assessment questions and tasks.
+:::
+
+---
+
+**`{{Module Code}}` - `{{Academic Year}}`**
+
+**Nelson Mandela University**
+
+*Faculty of Science*
+
+www.mandela.ac.za

@@ -5,13 +5,25 @@ department: "Department Name"
 faculty: "Faculty of Science"
 institution: "Nelson Mandela University"
 date: "`r format(Sys.Date(), '%B %Y')`"
+
+# Optional: Enable cover page (set to true to include)
+# cover_page: false
+
 format:
   docx:
     toc: true
+    # Official NMU Science template styles are applied automatically
+    # Colors: Green #006B34, Dark Blue #18324B, Purple #6C284F
+    # Fonts: Arial for body and headings
+
 execute:
   echo: true
   warning: true
   message: false
+
+# NOTE: Custom blocks (:::  {.learning-outcome}, {.alert}, {.note}, etc.) 
+# automatically render with proper NMU styling. Bold prefixes are added 
+# automatically by the template - no need to include them manually.
 ---
 
 # 1. INTRODUCTION {#introduction .unnumbered}

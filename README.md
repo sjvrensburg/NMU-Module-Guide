@@ -4,7 +4,7 @@ A Quarto template extension for creating Nelson Mandela University (Faculty of S
 
 ## Features
 
-- **University Branding**: Pre-configured with NMU Science styles (Avenir headings, Arial body text)
+- **University Branding**: Pre-configured with official NMU Science styles (Arial headings and body, NMU green #006B34)
 - **Zero Manual Formatting**: Output requires no post-processing in Word
 - **R Code Integration**: Execute and display R code chunks with formatted output
 - **Custom Block Styles**: Pre-defined styles for alerts, notes, tips, and learning outcomes
@@ -91,15 +91,18 @@ After reading this section, you will be able to:
 
 Renders as a highlighted quote-style block with "Learning Outcome:" prefix.
 
+**Note**: Custom blocks automatically add bold prefixes ("Learning Outcome:", "Alert:", etc.). 
+You don't need to include them manually in your content.
+
 ### Alerts and Warnings
 
 ````markdown
 ::: {.alert}
-**Important:** This is an alert box for critical information.
+This is an alert box for critical information.
 :::
 
 ::: {.warning}
-**Warning:** This is a warning box.
+This is a warning box.
 :::
 ````
 
@@ -107,11 +110,11 @@ Renders as a highlighted quote-style block with "Learning Outcome:" prefix.
 
 ````markdown
 ::: {.note}
-**Note:** This is a note box for additional information.
+This is a note box for additional information.
 :::
 
 ::: {.tip}
-**Tip:** This is a tip box for helpful suggestions.
+This is a tip box for helpful suggestions.
 :::
 ````
 
@@ -119,7 +122,7 @@ Renders as a highlighted quote-style block with "Learning Outcome:" prefix.
 
 ````markdown
 ::: {.important}
-**Important:** Key information that students should pay attention to.
+Key information that students should pay attention to.
 :::
 ````
 
@@ -127,7 +130,7 @@ Renders as a highlighted quote-style block with "Learning Outcome:" prefix.
 
 ````markdown
 ::: {.activity}
-**Activity:** Complete this task by the next class.
+Complete this task by the next class.
 :::
 ````
 
@@ -135,7 +138,7 @@ Renders as a highlighted quote-style block with "Learning Outcome:" prefix.
 
 ````markdown
 ::: {.reflection}
-**Reflection:** Consider the following questions...
+Consider the following questions...
 :::
 ````
 
@@ -143,9 +146,15 @@ Renders as a highlighted quote-style block with "Learning Outcome:" prefix.
 
 ````markdown
 ::: {.key-point}
-**Key Point:** This is the main takeaway.
+This is the main takeaway.
 :::
 ````
+
+All custom blocks use:
+- Light color backgrounds for visual distinction
+- Automatic bold prefixes
+- Proper spacing (8pt before, 4pt after)
+- Arial 11pt font matching document style
 
 ## R Code Examples
 
@@ -197,17 +206,24 @@ t.test(mpg ~ am, data = mtcars)
 
 The template maps Pandoc's standard styles to NMU's custom styles:
 
-| Pandoc Style | NMU Style | Font |
-|--------------|-----------|------|
-| Heading 1 | 1 Main Heading | Avenir Black |
-| Heading 2 | 2 Main Heading | Avenir Black |
-| Heading 3 | 1 Sub-heading | Avenir Black |
-| Heading 4 | 2 Sub-heading | Avenir Black |
-| Heading 5 | 3 Sub-heading | Avenir Black |
-| Heading 6 | 4 Sub-heading | Avenir Black |
-| Normal | Paragraph | Arial |
-| List Paragraph | Bullet-point List | Arial |
-| Block Quote | Quote | Arial |
+| Pandoc Style | NMU Style | Font | Color |
+|--------------|-----------|------|-------|
+| Heading 1 | 1 Main Heading | Arial Bold 15pt | White (#FFFFFF) |
+| Heading 2 | 2 Main Heading | Arial Bold 15pt | Dark Blue (#18324B) |
+| Heading 3 | 1 Sub-heading | Arial Bold 12pt | Dark Blue (#18324B) |
+| Heading 4 | 2 Sub-heading | Arial Bold 12pt | **NMU Green (#006B34)** |
+| Heading 5 | 3 Sub-heading | Arial 11pt | Dark Blue (#18324B) |
+| Heading 6 | 4 Sub-heading | Arial Bold | White (#FFFFFF) |
+| Normal | Paragraph | Arial 11pt | Black |
+| List Paragraph | Bullet-point List | Arial 11pt | Black |
+| Block Quote | Quote | Arial Italic 11pt | **NMU Green (#006B34)**, Centered |
+
+### Official NMU Science Color Palette
+
+- **Primary Green**: `#006B34` (RGB 0, 107, 52) - Used for 2 Sub-heading and Quote styles
+- **Dark Blue**: `#18324B` (RGB 24, 50, 75) - Used for most headings  
+- **Purple**: `#6C284F` (RGB 108, 40, 79) - Accent color
+- **Theme Colors**: See `NMU_OFFICIAL_SPECS.md` for complete theme color definitions
 
 ## Template Structure
 

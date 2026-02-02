@@ -1,19 +1,21 @@
 ---
-title: "MODULE CODE: Module Name"
+title: "Module Name"
+module_code: "MODULE CODE"
 author: "Module Coordinator Name"
 department: "Department Name"
 faculty: "Faculty of Science"
 institution: "Nelson Mandela University"
 date: "`r format(Sys.Date(), '%B %Y')`"
 
-# Optional: Enable cover page (set to true to include)
-# cover_page: false
+# Enable professional cover page with NMU branding
+cover_page: true
 
 format:
   docx:
     toc: true
     reference-doc: _extensions/nmu/module-guide/reference-doc.docx
     filters:
+      - _extensions/nmu/module-guide/cover-page.lua
       - _extensions/nmu/module-guide/custom-styles.lua
     # Official NMU Science template styles are applied automatically
     # Colors: Green #006B34, Dark Blue #18324B, Purple #6C284F

@@ -13,4 +13,5 @@ contributes:
       toc: true
       toc-title: "Table of Contents"
       filters:
+        - cover-page.lua
         - custom-styles.lua

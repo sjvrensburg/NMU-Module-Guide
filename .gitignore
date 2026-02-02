@@ -47,3 +47,6 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Information and exampes of the NMU Science Faculty's Module Guide
+compiling_a_module_guide/

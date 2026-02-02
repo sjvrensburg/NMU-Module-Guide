@@ -1,17 +1,22 @@
 title: "NMU Module Guide Template"
 author: "Stefan J. van Rensburg <stefan.vanrensburg@mandela.ac.za>"
-version: 1.0.0
+version: 2.0.0
 quarto: ">=1.4.0"
 
 contributes:
   formats:
-    docx:
+    odt:
       meta:
         nmu-module-guide: true
-      reference-doc: reference-doc.docx
       number-sections: true
       toc: true
       toc-title: "Table of Contents"
-      filters:
-        - cover-page.lua
-        - custom-styles.lua
+      filters: []
+      # Brand footer configuration
+      brand:
+        left:
+          - text: "**{module_code}**"
+        center:
+          - text: "**{date}**"
+        right:
+          - text: "**Nelson Mandela University** - Faculty of Science"

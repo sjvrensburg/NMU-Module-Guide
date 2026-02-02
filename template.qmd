@@ -7,28 +7,17 @@ faculty: "Faculty of Science"
 institution: "Nelson Mandela University"
 date: "`r format(Sys.Date(), '%B %Y')`"
 
-# Enable professional cover page with NMU branding
-cover_page: true
-
 format:
-  docx:
+  odt:
+    reference-doc: _extensions/sjvrensburg/module-guide/reference-doc.odt
     toc: true
-    reference-doc: _extensions/sjvrensburg/module-guide/reference-doc.docx
-    filters:
-      - _extensions/sjvrensburg/module-guide/cover-page.lua
-      - _extensions/sjvrensburg/module-guide/custom-styles.lua
-    # Official NMU Science template styles are applied automatically
-    # Colors: Green #006B34, Dark Blue #18324B, Purple #6C284F
-    # Fonts: Arial for body and headings
+    number-sections: true
 
 execute:
-  echo: true
+  eval: true
+  echo: false
   warning: true
   message: false
-
-# NOTE: Custom blocks (:::  {.learning-outcome}, {.alert}, {.note}, etc.) 
-# automatically render with proper NMU styling. Bold prefixes are added 
-# automatically by the template - no need to include them manually.
 ---
 
 # 1. INTRODUCTION {#introduction .unnumbered}

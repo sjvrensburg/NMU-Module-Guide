@@ -4,10 +4,11 @@ A Quarto template extension for creating Nelson Mandela University (Faculty of S
 
 ## Features
 
+- **Professional Cover Page**: Optional branded cover with NMU colors, institution name, and module details
 - **University Branding**: Pre-configured with official NMU Science styles (Arial headings and body, NMU green #006B34)
 - **Zero Manual Formatting**: Output requires no post-processing in Word
 - **R Code Integration**: Execute and display R code chunks with formatted output
-- **Custom Block Styles**: Pre-defined styles for alerts, notes, tips, and learning outcomes
+- **Custom Block Styles**: Pre-defined styles for alerts, notes, tips, and learning outcomes with automatic prefixes
 - **Complete Module Structure**: All 11 standard university sections included
 - **Template Extension**: Installable via `quarto use template` for easy reuse
 
@@ -74,6 +75,39 @@ After installation:
    - The output will be in `_output/template.docx`
    - All styles are correctly applied
    - No manual formatting required!
+
+## Professional Cover Page
+
+The template includes an optional professional cover page with NMU branding.
+
+### Enabling the Cover Page
+
+Set `cover_page: true` in your YAML front matter:
+
+```yaml
+---
+title: "Module Name"
+module_code: "SCI101"
+author: "Dr. Jane Smith"
+department: "Department of Biology"
+faculty: "Faculty of Science"
+institution: "Nelson Mandela University"
+cover_page: true
+---
+```
+
+### Cover Page Design
+
+The cover page features:
+- **Institution Header**: "NELSON MANDELA UNIVERSITY" in official dark blue (#18324B)
+- **Decorative Lines**: NMU green (#006B34) horizontal rules
+- **Module Information**: Title and code prominently displayed
+- **Coordinator Details**: Name and department
+- **Date**: Automatically formatted
+- **Professional Layout**: Centered, hierarchical typography with proper spacing
+- **Automatic Page Break**: Separates cover from table of contents
+
+All elements use official NMU colors and spacing for a professional appearance.
 
 ## Custom Block Styles
 

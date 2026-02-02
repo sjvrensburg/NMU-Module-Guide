@@ -48,5 +48,22 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# Information and exampes of the NMU Science Faculty's Module Guide
+# Information and examples of the NMU Science Faculty's Module Guide
 compiling_a_module_guide/
+
+# Generated output files
+*.docx
+!_extensions/**/*.docx
+
+# Development artifacts
+_assets_extracted/
+*_ANALYSIS.md
+*_SPECS.md
+
+# Serena (Claude Code analysis tool)
+.serena/
+
+# Temporary files
+*.tmp
+*.bak
+*~

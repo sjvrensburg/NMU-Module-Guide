@@ -67,3 +67,4 @@ _assets_extracted/
 *.tmp
 *.bak
 *~
+test-deployment/

@@ -296,7 +296,7 @@ NMU-Module-Guide/
 
 To change the document styling:
 
-1. Open `_extensions/nmu/module-guide/reference-doc.docx` in Word
+1. Open `_extensions/sjvrensburg/module-guide/reference-doc.docx` in Word
 2. Modify paragraph styles as needed
 3. Save changes
 4. Re-render your Quarto document
@@ -313,7 +313,7 @@ For different module types, create new `.qmd` files based on `template.qmd`:
 
 ### Adding Custom Shortcodes
 
-Edit `_extensions/nmu/module-guide/_extension.yml` to add new shortcodes:
+Edit `_extensions/sjvrensburg/module-guide/_extension.yml` to add new shortcodes:
 
 ```yaml
 shortcodes:
@@ -327,7 +327,7 @@ Then update `custom-styles.lua` to handle the new class.
 
 ### Styles Not Applying
 
-1. Ensure `_extensions/nmu/module-guide/` exists in your project
+1. Ensure `_extensions/sjvrensburg/module-guide/` exists in your project
 2. Check that `reference-doc.docx` is present
 3. Verify the format in YAML is `nmu-module-guide`
 4. Try: `quarto render --clean` then render again

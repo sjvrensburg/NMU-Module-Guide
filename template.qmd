@@ -13,10 +13,10 @@ cover_page: true
 format:
   docx:
     toc: true
-    reference-doc: _extensions/nmu/module-guide/reference-doc.docx
+    reference-doc: _extensions/sjvrensburg/module-guide/reference-doc.docx
     filters:
-      - _extensions/nmu/module-guide/cover-page.lua
-      - _extensions/nmu/module-guide/custom-styles.lua
+      - _extensions/sjvrensburg/module-guide/cover-page.lua
+      - _extensions/sjvrensburg/module-guide/custom-styles.lua
     # Official NMU Science template styles are applied automatically
     # Colors: Green #006B34, Dark Blue #18324B, Purple #6C284F
     # Fonts: Arial for body and headings

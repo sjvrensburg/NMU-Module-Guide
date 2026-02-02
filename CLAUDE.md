@@ -8,10 +8,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Key characteristics:
 - Designed for distribution via `quarto use template` command
-- Lua-based filter system for custom block styles
+- Two-filter Lua system: `cover-page.lua` (professional cover page) and `custom-styles.lua` (custom block styles)
 - R code integration for dynamic content (tables, plots, statistical analysis)
-- Pre-configured Word reference document with NMU styles (Avenir headings, Arial body)
+- Pre-configured Word reference document with NMU custom styles (CustomBlock* styles)
+- Optional professional cover page with NMU branding
 - Licensed under GNU GPL v3
+
+## Official NMU Color Palette
+
+- **Primary Green**: `#006B34` (RGB 0, 107, 52)
+- **Dark Blue**: `#18324B` (RGB 24, 50, 75)
+- **Purple**: `#6C284F` (RGB 108, 40, 79)
 
 ## Essential Commands
 
@@ -48,10 +55,11 @@ quarto render template.qmd
 
 ### Directory Structure
 
-- **`_extensions/nmu/module-guide/`** - The Quarto template extension
+- **`_extensions/sjvrensburg/module-guide/`** - The Quarto template extension
   - `_extension.yml` - Extension metadata and Quarto configuration
-  - `custom-styles.lua` - Lua filter for custom Div block rendering
-  - `reference-doc.docx` - Word reference document containing style mappings
+  - `cover-page.lua` - Lua filter for professional cover page generation
+  - `custom-styles.lua` - Lua filter for custom Div block style mapping
+  - `reference-doc.docx` - Word reference document containing NMU custom styles
   
 - **`template.qmd`** - Starter template with all 11 NMU module guide sections
 
@@ -62,41 +70,90 @@ quarto render template.qmd
 #### 1. Extension Configuration (`_extension.yml`)
 
 - Requires Quarto v1.4+
-- Registers the filter: `custom-styles.lua`
+- Registers two filters: `cover-page.lua` and `custom-styles.lua` (order matters - cover page first)
 - Sets reference document: `reference-doc.docx`
 - Enables table of contents and section numbering for docx output
 
-#### 2. Lua Filter (`custom-styles.lua`)
+#### 2. Cover Page Filter (`cover-page.lua`)
 
-Maps Pandoc Div classes to Word custom styles:
+Creates a professional cover page with NMU branding when `cover_page: true` is set in YAML metadata.
+
+**Cover page elements:**
+- NMU institution header in dark blue (#18324B)
+- Decorative lines in NMU green (#006B34)
+- Faculty and institution names
+- Module title and code (large, bold, dark blue)
+- Module coordinator and department
+- Automatic page break after cover
+
+**Usage:**
+```yaml
+---
+title: "Module Name"
+module_code: "SCI101"
+author: "Dr. Name"
+department: "Department Name"
+faculty: "Faculty of Science"
+institution: "Nelson Mandela University"
+cover_page: true
+---
+```
+
+The filter injects OpenXML directly for precise formatting control and uses two Pandoc functions:
+- `Meta(meta)` - Creates cover elements and stores them in `meta['cover-elements']`
+- `Pandoc(doc)` - Prepends cover elements to document blocks
+
+#### 3. Custom Styles Filter (`custom-styles.lua`)
+
+Maps Pandoc Div classes to Word custom paragraph styles defined in `reference-doc.docx`:
 
 ```lua
--- Example mappings
-learning-outcome → "Quote"
-alert → "Quote"
-note → "Paragraph"
-warning → "Quote"
-important → "Quote"
+-- Current mappings (CustomBlock* styles in reference-doc.docx)
+["learning-outcome"] = "CustomBlockLearningOutcome"
+["alert"] = "CustomBlockAlert"
+["note"] = "CustomBlockNote"
+["tip"] = "CustomBlockTip"
+["warning"] = "CustomBlockWarning"
+["important"] = "CustomBlockImportant"
+["key-point"] = "CustomBlockKeyPoint"
+["activity"] = "CustomBlockActivity"
+["assessment"] = "CustomBlockActivity"  -- Uses Activity style
+["reflection"] = "CustomBlockReflection"
 ```
 
 The filter also:
-- Prepends emoji/text prefixes to blocks (e.g., "Learning Outcome: ")
+- Prepends bold text prefixes to blocks (e.g., "Learning Outcome:")
 - Sets the `custom-style` attribute for Word style application
-- Handles blockquote styling
+- Handles blockquote styling via the `blockquote` class
 
-**Important:** Returns `nil` at the end of Div() to prevent Pandoc from generating default output. This allows Word to apply the reference-doc styles.
+**Important:** Returns the modified Div (not `nil`) to allow Word to apply the custom styles from the reference doc.
 
-#### 3. Word Reference Document (`reference-doc.docx`)
+#### 4. Word Reference Document (`reference-doc.docx`)
 
-- Contains style definitions that Pandoc uses to format output
-- Style names must match Pandoc's standard styles (Heading 1-6, Normal, Quote, etc.)
-- Modify via Word's Style Pane to change document appearance
-- Changes persist when re-rendering existing .qmd files
+Contains custom Word style definitions that map to Pandoc's output:
 
-#### 4. Template Content (`template.qmd`)
+**Custom Block Styles:**
+- `CustomBlockLearningOutcome`, `CustomBlockAlert`, `CustomBlockNote`, `CustomBlockTip`
+- `CustomBlockWarning`, `CustomBlockImportant`, `CustomBlockKeyPoint`
+- `CustomBlockActivity`, `CustomBlockReflection`
+
+**Standard Pandoc Styles (mapped to NMU styles):**
+- Heading 1 → "1 Main Heading" (Arial Bold 15pt, White background)
+- Heading 2 → "2 Main Heading" (Arial Bold 15pt, Dark Blue)
+- Heading 3 → "1 Sub-heading" (Arial Bold 12pt, Dark Blue)
+- Heading 4 → "2 Sub-heading" (Arial Bold 12pt, NMU Green)
+- Heading 5 → "3 Sub-heading" (Arial 11pt, Dark Blue)
+- Heading 6 → "4 Sub-heading" (Arial Bold, White background)
+- Normal → "Paragraph" (Arial 11pt, Black)
+- Block Quote → "Quote" (Arial Italic 11pt, NMU Green, centered)
+
+Modify via Word's Style Pane (Ctrl+Shift+Alt+S) to change document appearance.
+
+#### 5. Template Content (`template.qmd`)
 
 YAML header configures metadata:
-- `title`, `author`, `department`, `faculty`, `institution`, `date`
+- `title`, `module_code`, `author`, `department`, `faculty`, `institution`, `date`
+- `cover_page: true` - Enables professional cover page
 - `format.docx` settings: TOC, numbering, filter registration
 - `execute` block: default R chunk behavior
 
@@ -119,31 +176,34 @@ Sections use custom Div blocks like `::: {.learning-outcome}` and embedded R cod
 
 ### Adding New Custom Block Styles
 
-1. In `_extension.yml`: Add style to filter registration (already done)
+1. In `_extension.yml`: Filter registration is automatic (all Lua filters in extension folder are loaded)
 2. In `custom-styles.lua`:
    - Add entry to `style_map` table (maps class name to Word style)
    - Add entry to `prefixes` table if visual prefix is needed
-3. In `reference-doc.docx`: Ensure the Word style exists
+3. In `reference-doc.docx`: Create the custom Word style with name matching `style_map` value
 4. Document in README.md
 
 Example:
 ```lua
 -- In Div function style_map table
-["discussion"] = "Quote"
+["discussion"] = "CustomBlockDiscussion"
 
 -- In prefixes table
-["discussion"] = "💬 Discussion: "
+["discussion"] = "Discussion:"
 ```
+
+**Important:** Style names in `style_map` must exactly match custom style names defined in `reference-doc.docx`.
 
 ### Modifying Word Styles
 
-1. Open `_extensions/nmu/module-guide/reference-doc.docx` in Word
-2. Access Home → Styles → Styles Pane (or press Ctrl+Shift+Alt+P)
-3. Modify styles (Heading 1, Heading 2, Quote, Normal, etc.)
+1. Open `_extensions/sjvrensburg/module-guide/reference-doc.docx` in Word
+2. Access Home → Styles → Styles Pane (or press Ctrl+Shift+Alt+S)
+3. Modify styles (CustomBlock* styles, Heading 1-6, Quote, Normal, etc.)
 4. Save the document
 5. Re-render any .qmd files that use the style
 
-The style names in the docx must match what Pandoc outputs (Heading 1, Normal, Quote, etc.).
+**Standard Pandoc Styles:** Heading 1-6, Normal, Quote, List Paragraph, etc.
+**Custom Block Styles:** CustomBlockLearningOutcome, CustomBlockAlert, etc.
 
 ### Updating the Template
 
@@ -156,7 +216,7 @@ The style names in the docx must match what Pandoc outputs (Heading 1, Normal, Q
 
 ### Styles Not Applying in Word Output
 
-- Ensure `_extensions/nmu/module-guide/` folder exists in the project
+- Ensure `_extensions/sjvrensburg/module-guide/` folder exists in the project
 - Check that `reference-doc.docx` is present in the extension folder
 - Verify YAML format is set to `nmu-module-guide` or uses correct filter path
 - Try `quarto render --clean` before re-rendering
@@ -172,8 +232,9 @@ The style names in the docx must match what Pandoc outputs (Heading 1, Normal, Q
 ### Custom Blocks Not Rendering
 
 - Verify Div syntax: three colons, class name in braces, proper closing
-- Check Lua filter is listed in `_extension.yml`
+- Check Lua filter is present in `_extensions/sjvrensburg/module-guide/` folder
 - Confirm the class name exists in `style_map` in custom-styles.lua
+- Verify the corresponding CustomBlock* style exists in reference-doc.docx
 - Test with simple content first before complex formatting
 
 ## Distribution and Usage
@@ -192,8 +253,36 @@ Maintain the structure with `_extensions/` at the repository root for compatibil
 ## Development Notes
 
 - This project uses Lua 5.1 (Pandoc's embedded Lua version)
-- The filter operates on Pandoc's AST (abstract syntax tree)
+- The filters operate on Pandoc's AST (abstract syntax tree)
 - Word output requires careful coordination between Pandoc styles and reference-doc.docx
 - R code execution depends on having R and required packages installed
 - Version constraint: Quarto >= 1.4.0
+
+## Available Custom Block Styles
+
+The template supports the following custom Div blocks (syntax: `::: {.class-name}`):
+
+| Class Name | Word Style | Prefix Text |
+|------------|------------|-------------|
+| `learning-outcome` | CustomBlockLearningOutcome | "Learning Outcome:" |
+| `alert` | CustomBlockAlert | "Alert:" |
+| `note` | CustomBlockNote | "Note:" |
+| `tip` | CustomBlockTip | "Tip:" |
+| `warning` | CustomBlockWarning | "Warning:" |
+| `important` | CustomBlockImportant | "Important:" |
+| `key-point` | CustomBlockKeyPoint | "Key Point:" |
+| `activity` | CustomBlockActivity | "Activity:" |
+| `assessment` | CustomBlockActivity | "Assessment:" |
+| `reflection` | CustomBlockReflection | "Reflection:" |
+
+Example usage:
+````markdown
+::: {.learning-outcome}
+After completing this module, students will be able to:
+- Outcome 1
+- Outcome 2
+:::
+````
+
+Note: Prefixes are added automatically by the filter - do not include them manually in content.
 

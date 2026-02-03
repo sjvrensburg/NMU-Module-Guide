@@ -10,10 +10,10 @@ date: "`r format(Sys.Date(), '%B %Y')`"
 format:
   odt:
     reference-doc: _extensions/sjvrensburg/module-guide/reference-doc.odt
-    toc: true
+    toc: false
     number-sections: true
     filters:
-      - _extensions/sjvrensburg/module-guide/cover-page.lua
+      - _extensions/sjvrensburg/module-guide/toc-generator.lua
       - _extensions/sjvrensburg/module-guide/custom-styles.lua
 
 execute:
@@ -21,6 +21,22 @@ execute:
   echo: false
   warning: true
   message: false
+---
+
+<!-- COVER PAGE (not numbered) -->
+
+**Nelson Mandela University**
+
+**Faculty of Science**
+
+**Module Code:** MODULE CODE
+
+---
+
+By: Module Coordinator Name
+
+2026-02-01
+
 ---
 
 # INTRODUCTION {#introduction}

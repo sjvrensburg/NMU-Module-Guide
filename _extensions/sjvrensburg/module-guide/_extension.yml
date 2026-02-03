@@ -11,7 +11,9 @@ contributes:
       number-sections: true
       toc: true
       toc-title: "Table of Contents"
-      filters: []
+      filters:
+        - cover-page.lua
+        - custom-styles.lua
       # Brand footer configuration
       brand:
         left:

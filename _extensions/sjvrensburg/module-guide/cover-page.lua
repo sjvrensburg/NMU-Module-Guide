@@ -56,7 +56,7 @@ function Pandoc(doc)
     }),
     
     -- Title
-    pandoc.Heading(
+    pandoc.Header(
       1,
       pandoc.Str(title)
     ),

@@ -12,6 +12,9 @@ format:
     reference-doc: _extensions/sjvrensburg/module-guide/reference-doc.odt
     toc: true
     number-sections: true
+    filters:
+      - _extensions/sjvrensburg/module-guide/cover-page.lua
+      - _extensions/sjvrensburg/module-guide/custom-styles.lua
 
 execute:
   eval: true

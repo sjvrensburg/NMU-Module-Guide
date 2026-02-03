@@ -32,10 +32,12 @@ Welcome to **`{{Module Name}}`**. This learner guide is designed to support you 
 
 ::: {.learning-outcome}
 After reading this guide, you will understand:
+
 - The module's purpose and how it fits into your programme
 - What is expected of you as a student
 - How you will be assessed
 - The resources available to support your learning
+
 :::
 
 ## Educational Approach

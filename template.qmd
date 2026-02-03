@@ -10,8 +10,10 @@ date: "`r format(Sys.Date(), '%B %Y')`"
 format:
   odt:
     reference-doc: _extensions/sjvrensburg/module-guide/reference-doc.odt
-    toc: true
+    toc: false
     number-sections: true
+    filters:
+      - _extensions/sjvrensburg/module-guide/custom-styles.lua
 
 execute:
   eval: true
@@ -56,7 +58,7 @@ You are expected to:
 
 # ADMINISTRATIVE INFORMATION {#admin .unnumbered}
 
-## 2.1 Communication Channels
+## Communication Channels
 
 All communication relating to this module will take place through:
 
@@ -67,7 +69,7 @@ All communication relating to this module will take place through:
 **Tip:** Check your Mandela University email daily. All official communication will be sent to this address.
 :::
 
-## 2.2 Contact Details
+## Contact Details
 
 **Module Coordinator:** `{{Name}}`
 
@@ -79,9 +81,9 @@ All communication relating to this module will take place through:
 
 **Telephone:** `{{Number}}`
 
-# 3. MODULE INFORMATION {#module-info .unnumbered}
+# MODULE INFORMATION {#module-info .unnumbered}
 
-## 3.1 Module Description and Purpose
+## Module Description and Purpose
 
 This module aims to `{{brief description aligned to yearbook}}`. It contributes to the programme by developing your knowledge, skills, and competencies in `{{specific area}}`.
 
@@ -89,7 +91,7 @@ This module aims to `{{brief description aligned to yearbook}}`. It contributes 
 **Module Focus:** This module emphasizes practical application of theoretical concepts through hands-on activities and real-world examples.
 :::
 
-## 3.2 Assumed Knowledge and Skills
+## Assumed Knowledge and Skills
 
 On entering this module, you are expected to have:
 
@@ -97,7 +99,7 @@ On entering this module, you are expected to have:
 - Basic academic literacy and digital skills
 - Willingness to engage in independent and collaborative learning
 
-## 3.3 NQF Level, Credits and Notional Hours
+## NQF Level, Credits and Notional Hours
 
 ```{r}
 # Module metadata
@@ -109,7 +111,7 @@ module_info <- data.frame(
 knitr::kable(module_info, caption = "Module Information")
 ```
 
-## 3.4 Articulation with Other Modules
+## Articulation with Other Modules
 
 This module:
 
@@ -118,7 +120,7 @@ This module:
 - **Is a pre-requisite for:** `{{if applicable}}`
 - **Forms part of:** `{{year/semester}} of the {{programme name}}`
 
-## 3.5 Module Learning Outcomes
+## Module Learning Outcomes
 
 On successful completion of this module, you will be able to:
 
@@ -136,7 +138,7 @@ On successful completion of this module, you will be able to:
 
 These outcomes are aligned to programme outcomes and graduate attributes.
 
-## 3.6 Module Structure and Content
+## Module Structure and Content
 
 The module is structured around `{{number}}` main themes/topics:
 
@@ -166,7 +168,7 @@ All learning outcomes and assessments are aligned to the professional standards 
 
 # 5. TEACHING & LEARNING DETAILS {#teaching .unnumbered}
 
-## 5.1 Overview of Learning Activities
+## Overview of Learning Activities
 
 Your learning in this module will involve a range of activities including:
 
@@ -178,7 +180,7 @@ Your learning in this module will involve a range of activities including:
 
 **Primary learning mode:** `{{Face-to-face / Online / Blended}}`
 
-## 5.2 Weekly Schedule
+## Weekly Schedule
 
 ```{r}
 # Weekly schedule
@@ -212,7 +214,7 @@ knitr::kable(weekly_schedule, caption = "Weekly Schedule and Assessment Plan")
 
 # 6. LEARNING RESOURCES {#resources .unnumbered}
 
-## 6.1 Prescribed Resources
+## Prescribed Resources
 
 ### Textbook / Core Resource
 
@@ -224,7 +226,7 @@ knitr::kable(weekly_schedule, caption = "Weekly Schedule and Assessment Plan")
 - **Year:** `{{Year}}`
 - **ISBN:** `{{ISBN}}`
 
-## 6.2 Recommended Resources
+## Recommended Resources
 
 ```{r}
 # Recommended readings
@@ -254,7 +256,7 @@ knitr::kable(readings, caption = "Weekly Readings")
 
 # 7. ASSESSMENT GUIDELINES {#assessment .unnumbered}
 
-## 7.1 Assessment Overview and Matrix
+## Assessment Overview and Matrix
 
 **Total assessment weighting = 100%**
 
@@ -276,7 +278,7 @@ assessment_plan <- data.frame(
 knitr::kable(assessment_plan, caption = "Assessment Plan (Total: 100%)")
 ```
 
-## 7.2 Assessment Rules and Policies
+## Assessment Rules and Policies
 
 ### Pass Requirements and DP Rules
 
@@ -297,7 +299,7 @@ knitr::kable(assessment_plan, caption = "Assessment Plan (Total: 100%)")
 **Important:** Please refer to Faculty and Institutional Assessment Policies for complete details on assessment procedures, including requirements for supplementary examinations.
 :::
 
-## 7.3 Assessment Criteria
+## Assessment Criteria
 
 ### Research Project Rubric
 
@@ -335,7 +337,7 @@ All written assessments must be submitted via Turnitin. Similarity reports will 
 
 # 10. SUPPORT SERVICES & RESOURCES {#support .unnumbered}
 
-## 10.1 The Library
+## The Library
 
 The library offers extensive resources to support your learning.
 
@@ -346,7 +348,7 @@ The library offers extensive resources to support your learning.
 - **Email:** `{{Email}}`
 - **Office Number:** `{{Location}}`
 
-## 10.2 Emthonjeni - Fountain of Student Wellness
+## Emthonjeni - Fountain of Student Wellness
 
 Emthonjeni Student Wellness consists of a team of professionally trained psychologists who are registered with the Health Professions Council of South Africa (HPCSA).
 

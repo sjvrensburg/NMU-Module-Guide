@@ -11,8 +11,8 @@ contributes:
       number-sections: true
       toc: true
       toc-title: "Table of Contents"
-      filters: []
-      # Brand footer configuration
+      # Note: Filters defined in template.qmd (toc-generator.lua, custom-styles.lua)
+      # Brand footer configuration (NMU official template format)
       brand:
         left:
           - text: "**{module_code}**"

@@ -1,0 +1,47 @@
+---
+# NMU Brand Configuration
+# Defines branding elements for NMU Module Guides
+
+logo: logo.png
+
+# Official NMU Color Palette
+colors:
+  primary:
+    - "#006B34"  # NMU Green
+    - "#18324B"  # Dark Blue
+    - "#6C284F"  # Purple
+
+# Typography
+fonts:
+  body: Liberation Sans
+  heading: Liberation Sans
+  mono: Liberation Mono
+
+# Style preferences
+styles:
+  headers:
+    h1:
+      color: "#18324B"
+      background: "#006B34"
+      text-color: "#FFFFFF"
+    h2:
+      color: "#18324B"
+      font-weight: bold
+    h3:
+      color: "#006B34"
+      font-weight: bold
+    h4:
+      color: "#18324B"
+      font-weight: bold
+
+# Footer configuration
+footer:
+  left:
+    - text: "**{module_code}**"
+      href: "https://www.mandela.ac.za"
+  center:
+    - text: "**{date}**"
+  right:
+    - text: "**Nelson Mandela University**"
+      href: "https://www.mandela.ac.za"
+    - text: "Faculty of Science"

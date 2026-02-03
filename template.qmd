@@ -20,9 +20,9 @@ execute:
   message: false
 ---
 
-# 1. INTRODUCTION {#introduction .unnumbered}
+# INTRODUCTION {#introduction}
 
-## 1.1 Welcome
+## Welcome
 
 Dear Student,
 
@@ -36,11 +36,11 @@ After reading this guide, you will understand:
 - The resources available to support your learning
 :::
 
-## 1.2 Educational Approach
+## Educational Approach
 
 This module is underpinned by the principle of constructive alignment (Biggs), meaning that learning activities, assessments, and outcomes are carefully aligned to promote deep learning and critical thinking.
 
-## 1.3 Responsibilities of the Student
+## Responsibilities of the Student
 
 You are expected to:
 
@@ -54,7 +54,7 @@ You are expected to:
 **Attendance Requirement:** Regular attendance is essential for success in this module. Missing more than 20% of classes may result in a DP (Duly Performed) refusal.
 :::
 
-# 2. ADMINISTRATIVE INFORMATION {#admin .unnumbered}
+# ADMINISTRATIVE INFORMATION {#admin .unnumbered}
 
 ## 2.1 Communication Channels
 
